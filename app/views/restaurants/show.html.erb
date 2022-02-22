@@ -1,0 +1,11 @@
+<h1>Restaurant Show</h1>
+
+<h2>Name: <%= @restaurant.name %></h2>
+<p>Address: <%= @restaurant.address %></p>
+<p>Rating: <%= @restaurant.rating %></p>
+
+<%= link_to "Back to Index", restaurants_path, style: 'display: block;' %>
+
+<%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant), style: 'display: block;' %>
+
+<%= link_to 'Delete this restaurant', restaurant_path(@restaurant), method: 'delete', data: { confirm: "Are you sure my friend?", style: 'display: block;' } %>

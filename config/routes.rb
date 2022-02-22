@@ -1,20 +1,27 @@
 Rails.application.routes.draw do
 
-  # get 'restaurants', to: 'restaurants#index', as: :restaurants
+  # LIST ALL RESTAURANTS
+  get 'restaurants', to: 'restaurants#index', as: :restaurants
 
-  # get 'restaurants/new', to: 'restaurants#new', as: :new_restaurant
+  # SHOW CREATE FORM
+  get 'restaurants/new', to: 'restaurants#new', as: :new_restaurant
 
-  # post 'restaurants', to: 'restaurants#create'
+  # CREATE THE RESTAURANT
+  post 'restaurants', to: 'restaurants#create'
 
-  # # EDIT RESTAURANT
-  # get 'restaurants/:id/edit', to: 'restaurants#edit', as: :edit_restaurant
+  # EDIT RESTAURANT
+  get 'restaurants/:id/edit', to: 'restaurants#edit', as: :edit_restaurant
 
-  # get 'restaurants/:id', to: 'restaurants#show', as: :restaurant
+  # LIST ONE RESTAURANT
+  get 'restaurants/:id', to: 'restaurants#show', as: :restaurant
 
-  # patch 'restaurants/:id', to: 'restaurants#update'
+  # UPDATE THE RESTAURANT
+  patch 'restaurants/:id', to: 'restaurants#update'
 
-  # delete 'restaurants/:id', to: 'restaurants#destroy'
+  # DESTROY THE RESTAURANT
+  delete 'restaurants/:id', to: 'restaurants#destroy'
 
-  resources :restaurants
-
+  # THIS WILL GENERATE ALL THE SEVEN CRUD ROUTES TO US
+  # USE IT ONLY ON THE SECOND CHALLENGE!!!!!!
+  # resources :restaurants
 end

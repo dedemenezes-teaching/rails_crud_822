@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save
-    redirect_to restaurant_path(@restaurant)
+    redirect_to restaurant_path(@restaurant) # tells the browser to make a GET request to restaurants_path
   end
 
   def edit
@@ -39,6 +39,32 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
+    # :restaurant as in the name of the model, in singular and downcase!
     params.require(:restaurant).permit(:name, :address, :rating)
   end
+
+  # params is
+  # {
+  #   "authenticity_token"=>"bxcW90KfIHKH4f2KuIRkjnr63Xf1dRMAFL7kK+3xKRkXkxs9FdE8stlCMidaRdYdxN/DOcojnXKCAoM7Xw35hA==",
+  #   "restaurant"=>{
+  #     "name"=>"Gula Gula",
+  #     "address"=>"Ipanema",
+  #     "admin"=>"true",
+  #     "rating"=>"5"
+  # }
+
+  # params.require(:restaurant)
+  # {
+  #   "name"=>"Gula Gula",
+  #   "address"=>"Ipanema",
+  #   "admin"=>"true",
+  #   "rating"=>"5"
+  # }
+
+  # params.require(:restaurant).permit(:name, :address, :rating)
+  # {
+  #   "name"=>"Gula Gula",
+  #   "address"=>"Ipanema",
+  #   "rating"=>"9"
+  # }
 end
